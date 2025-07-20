@@ -17,11 +17,11 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(Publisher src/publisher.cpp)
-ament_target_dependencies(Publisher rclcpp std_msgs)
+add_executable(talker src/publisher.cpp)
+ament_target_dependencies(talker rclcpp std_msgs)
 
-add_executable(Subscriber src/subscription.cpp)
-ament_target_dependencies(Subscriber rclcpp std_msgs)
+add_executable(listener src/subscription.cpp)
+ament_target_dependencies(listener rclcpp std_msgs)
 
 add_executable(Server src/server.cpp)
 ament_target_dependencies(Server rclcpp std_msgs geometry_msgs interfaces)
@@ -30,8 +30,8 @@ add_executable(Client src/client.cpp)
 ament_target_dependencies(Client rclcpp std_msgs geometry_msgs interfaces)
 
 install(TARGETS
-  Publisher
-  Subscriber
+  talker
+  listener
   Server
   Client
   DESTINATION lib/${PROJECT_NAME})
